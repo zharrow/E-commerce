@@ -1,0 +1,47 @@
+<main>
+    <h1>About members and sales</h1>
+<table>
+    <thead>
+        <tr>
+            <th>Number of members</th>
+            <th>Number of sales</th>
+        </tr>
+    </thead>
+    <tbody>
+        <tr>
+            <td>Users registered: {{ numberOfMembers() }}</td>
+            <td>Total sales registered : {{ numberOfSales() }}</td>
+        </tr>
+    </tbody>
+</table>
+
+<h2>Last 7 days</h2>
+<table>
+    <thead>
+        <tr>
+            <th>Number of news sales last 7 days</th>
+            <th>Revenues this last 7 days</th>
+        </tr>
+    </thead>
+    <tbody>
+        <tr>
+            <td>{{ lastSevenDaysSales() }}</td>
+            <td>{{ lastSevenDaysRevenues() }}</td>
+        </tr>
+    </tbody>
+</table>
+
+<h2>Global</h2>
+<table>
+    <thead>
+        <tr>
+            <th>Total Revenues</th>
+        </tr>
+    </thead>
+    <tbody>
+        <tr>
+            <td>{{ totalRevenues() }}</td>
+        </tr>
+    </tbody>
+</table>
+</main>

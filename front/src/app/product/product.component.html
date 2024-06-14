@@ -1,0 +1,35 @@
+<main>
+    <section>
+        <div class="product">
+            <div class="product__image">
+                <img src="../../assets/{{ product.imagePath }}" alt="Couverture du jeu.">
+            </div>
+            <div class="product__info">
+                <h1 class="product__name">{{ product.name }}</h1>
+                <p class="product__price">Price : {{ product.price }} €</p>
+                <p class="product__quantity">Quantity : {{ product.quantity ? product.quantity : "Plus en réserve" }}
+                </p>
+                <p class="product__rate">Average rate : {{ rate.value }} / 5</p>
+                <button class="product__button" (click)="addToCart()">Add to Cart</button>
+            </div>
+        </div>
+        <!-- <button class="product__button" (click)="addToCart(product)">Add to Cart</button> -->
+    </section>
+    <section id="reviews">
+        <h2>Reviews</h2>
+        <a *ngIf="canPostReview" routerLink="/add-review/{{ product.id }}">Add a review</a>
+        <div class="reviews_background" *ngFor="let current of reviewsFormatted">
+            <div class="reviews_title">
+                <h3>Title: {{ current.review.title }}</h3>
+                <p>Rate: {{ current.review.rate }} / 5</p>
+                <!-- Add Correct Routes to User Id -->
+                <a href="user-profile/{{ current.user.id }}">Author: {{ current.user.pseudo }}</a>
+            </div>
+            <p>Description: {{ current.review.description }}</p>
+            <div *ngIf="current.review.userId == userId">
+                <a routerLink="/edit-review/{{ current.review.id }}" class="edit__btn">Modifier votre avis</a>
+                <a (click)="deleteReview(current.review.id)" class="delete__btn">Supprimer votre avis</a>
+            </div>
+        </div>
+    </section>
+</main>

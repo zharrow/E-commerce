@@ -1,0 +1,121 @@
+#searchbar-result-container{
+    background-color: #1b1b1b;
+    border-radius: 30px;
+    box-shadow: 0px 0px 10px 0px #3b3b3b;
+    width: 82%;
+    margin: -2% 4%;
+    position: fixed;
+    z-index: 100000;
+    display: grid;
+    grid-template-columns: repeat(7, 1fr);
+    padding: 0 1%;
+}
+
+.search-result-image{
+    width: 10%;
+    height: 10%;
+    border-radius: 50%;
+}
+.search-result-name{
+    color: var(--var-grey);
+    font-size: 1rem;
+    font-weight: 500;
+}
+.search-result-price{
+    color: var(--var-primary);
+    font-size: 1rem;
+    font-weight: 500;
+}
+
+header {
+    position: sticky;
+    top: 4%;
+    z-index: 100;
+    padding: 0.2% 2%;
+    margin: 2%;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    text-decoration: none;
+    background-color: #1b1b1b;
+    border-radius: 60px;
+    input {
+        border: 1px solid #525252;
+        border-radius: 60px;
+        padding: 0.6vw 1vw;
+        background-color: #363636;
+        color: var(--var-primary);
+        font-size: 1rem;
+        font-family: "Poppins", sans-serif;
+        letter-spacing: 1px;
+        width: 20vw;
+        &:focus {
+            outline: 1px solid var(--var-primary);
+            box-shadow: 0px 0px 6px 0px var(--var-primary);
+        }
+        &:hover {
+            animation: 0.6s InputShadow infinite alternate;
+        }
+    }
+    menu {
+        display: flex;
+        gap: 10px;
+        list-style-type: none;
+        padding: 0.6vw 4vw;
+    }
+    a {
+        color: var(--var-grey);
+        text-decoration: none;
+        &:hover {
+            color: var(--var-primary);
+            font-weight: 500;
+            cursor: pointer;
+            animation: 0.6s TextShadow infinite alternate;
+        }
+        &:focus {
+            color: var(--var-primary);
+            font-weight: 500;
+        }
+        &::before,
+        &::after {
+            content: "";
+            opacity: 0;
+            transition: opacity 0.4s;
+        }
+
+        &::before {
+            content: "[ ";
+        }
+
+        &::after {
+            content: " ]";
+        }
+
+        &:hover::before,
+        &:hover::after {
+            opacity: .7;
+        }
+    }
+}
+.active-link {
+    color: var(--var-primary);
+    font-weight: 500;
+}
+
+@keyframes InputShadow {
+    from {
+        box-shadow: 0px 0px 2px 0px var(--var-primary);
+    }
+    to {
+        box-shadow: 0px 0px 6px 0px var(--var-primary);
+    }
+}
+
+@keyframes TextShadow {
+    from {
+        text-shadow: 0px 0px 30px white;
+    }
+    to {
+        text-shadow: 0px 0px 50px white;
+    }
+}
